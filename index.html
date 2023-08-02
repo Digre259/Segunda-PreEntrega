@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+
+<head>
+    <title>Personal Trainer</title>
+  </head>
+  <body>
+    <script>
+        // Función para calcular la frecuencia cardíaca máxima
+        function calcularFrecuenciaCardiacaMaxima(edad) {
+          return 220 - edad;
+        }
+    
+        // Función para sugerir el tipo de entrenamiento
+        function sugerirTipoEntrenamiento(frecuenciaMaxima, objetivo) {
+          var sugerencia = "Tipo de Entrenamiento Recomendado: ";
+    
+          if (frecuenciaMaxima >= 160) {
+            sugerencia += "Entrenamiento de alta intensidad. ¡A darlo todo!";
+          } else if (frecuenciaMaxima >= 140) {
+            sugerencia += "Entrenamiento de intensidad moderada. Mantén un ritmo constante.";
+          } else {
+            sugerencia += "Entrenamiento de baja intensidad. Enfócate en la resistencia y la técnica.";
+          }
+    
+          // Recomendaciones específicas según el objetivo
+          if (objetivo.toLowerCase() === "perder peso") {
+            sugerencia += "\n\nRecomendación: Combina ejercicios cardiovasculares con entrenamiento de fuerza para acelerar el metabolismo y quemar grasa.";
+          } else if (objetivo.toLowerCase() === "ganar masa muscular") {
+            sugerencia += "\n\nRecomendación: Realiza entrenamientos de fuerza con pesas o resistencia para estimular el crecimiento muscular.";
+          } else if (objetivo.toLowerCase() === "mantenerse en forma") {
+            sugerencia += "\n\nRecomendación: Incorpora una mezcla de ejercicios cardiovasculares, fuerza y flexibilidad para mantener un cuerpo equilibrado y saludable.";
+          } else {
+            sugerencia += "\n\nNo se encontró un objetivo específico. Te recomendamos buscar asesoramiento profesional para personalizar tu plan de entrenamiento.";
+          }
+    
+          return sugerencia;
+        }
+    
+        // Capturar los datos del usuario
+        var nombre = prompt('¡Bienvenido/a al Gimnasio! Por favor, ingrese su nombre:');
+        var edad = prompt('Ingrese su edad:');
+        var genero = prompt('Ingrese su género (masculino/femenino):');
+        var peso = prompt('Ingrese su peso en kilogramos:');
+        var objetivo = prompt('¿Cuál es su objetivo de entrenamiento? (ejemplo: perder peso, ganar masa muscular, mantenerse en forma)');
+    
+        // Convertir la edad y peso ingresados a valores numéricos
+        edad = parseInt(edad);
+        peso = parseFloat(peso);
+    
+        // Calcular la frecuencia cardíaca máxima
+        var frecuenciaMaxima = calcularFrecuenciaCardiacaMaxima(edad);
+    
+        // Sugerir el tipo de entrenamiento y recomendaciones según el objetivo
+        var sugerenciaEntrenamiento = sugerirTipoEntrenamiento(frecuenciaMaxima, objetivo);
+    
+        // Mostrar los resultados en la consola
+        console.log('Nombre:', nombre);
+        console.log('Edad:', edad);
+        console.log('Género:', genero);
+        console.log('Peso:', peso);
+        console.log('Frecuencia Cardíaca Máxima:', frecuenciaMaxima);
+        console.log('Objetivo de Entrenamiento:', objetivo);
+        console.log('Sugerencia de Entrenamiento:', sugerenciaEntrenamiento);
+    
+        // Mostrar los resultados en una ventana emergente
+        alert('¡Hola, ' + nombre + '!\n\n' +
+          'Edad: ' + edad + ' años\n' +
+          'Género: ' + genero + '\n' +
+          'Peso: ' + peso + ' kg\n' +
+          'Frecuencia Cardíaca Máxima: ' + frecuenciaMaxima + ' bpm\n\n' +
+          'Objetivo de Entrenamiento: ' + objetivo + '\n\n' +
+          sugerenciaEntrenamiento);
+      </script>
+    </body>
+    </html>
